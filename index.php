@@ -10,7 +10,8 @@
         if($_POST['nama'] == $user && 
             $_POST['password'] == $password
         ){
-            echo 'berhasil';
+           header('Location: profil.php?nama=' . $user);
+        // echo 'berhasil login';
         }
      
         else{
