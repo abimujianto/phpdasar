@@ -1,5 +1,5 @@
 <?php
 
-echo 'ini profil ' . $_GET['nama'];
+echo 'ini profil';
 
 ?>
