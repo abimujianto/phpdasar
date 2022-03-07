@@ -1,15 +1,22 @@
 <?php
 
+session_start();
+
 $user = 'abi';
 $password = '123';
 
 if(isset($_POST['submit'])){
     if($_POST['nama'] == $user && 
         $_POST['password'] == $password){
+
         //cookie
         //setcookie(key, nilai, expire)
-            setcookie('nama_user', $_POST['nama'], time()+120);
-            header('Location:profil.php');
+            // setcookie('nama_user', $_POST['nama'], time()+120);
+    $_SESSION['nama_user'] = $_POST['nama'];
+    header('Location: profil.php?nama=' .$user);
+      
+    }else{
+        echo 'gagal login';
     }
 }
 
