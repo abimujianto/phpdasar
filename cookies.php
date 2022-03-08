@@ -1,5 +1,10 @@
 <?php
 
+
+// echo $_SERVER['REMOTE_ADDR'];
+
+
+
 session_start();
 
 $user = 'abi';

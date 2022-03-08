@@ -1,31 +1,23 @@
-<!-- <?php require('header.php'); ?>
-    -->
-
-<main>
 <?php
-    $user = 'abi';
-    $password = '123';
-    
-    if(isset($_POST['submit'])){
-        if($_POST['nama'] == $user && 
-            $_POST['password'] == $password
-        ){
-           header('Location: profil.php?nama=' . $user);
-        // echo 'berhasil login';
-        }
-     
-        else{
-            echo 'gagal login';
-        }
+
+$connect = mysqli_connect('localhost', 'root', '', 'sekolah');
+
+if(!$connect){
+    echo 'ada yang error di ' .mysqli_connect_error();
+}
+
+$query = 'SELECT * FROM murid';
+$hasil = mysqli_query($connect, $query);
+
+if(mysqli_num_rows($hasil) > 0){
+    while($data = mysqli_fetch_assoc($hasil)){
+        echo $data['nama'] ." ";
+        echo $data['alamat']. " ";
+        echo $data['id'] . "<br>";
     }
+}
+
+
+mysqli_close($connect);
 
 ?>
-<form action="index.php" method="post">
-    <input type="text" name='nama'>
-    <input type="password" name='password'>
-    <input type="submit" name="submit">
-</form>
-</main>
-<!-- <?php require('footer.php');?>
-
-   -->
